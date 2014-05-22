@@ -1,0 +1,186 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+
+
+	<groupId>com.equinix.fase</groupId>
+
+	<artifactId>eqx-fase-common</artifactId>
+
+	<version>1.1.9</version>
+
+	<name>eqx-fase-common</name>
+
+	<packaging>jar</packaging>
+
+	<properties>
+
+                <play.version>2.2.0</play.version>
+
+        </properties>
+
+
+	<repositories>
+		<repository>
+			<id>typesafe</id>
+			<url>http://repo.typesafe.com/typesafe/releases/</url>
+		</repository>
+		<repository>
+			<id>nexus</id>
+			<url>http://nexus.corp.equinix.com/nexus</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>nexus</id>
+			<name>Nexus Repository</name>
+			<url>http://nexus.corp.equinix.com/nexus/content/repositories</url>
+		</pluginRepository>
+		<pluginRepository>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>nexus1</id>
+			<name>Nexus Repository</name>
+			<url>http://nexus.corp.equinix.com/nexus/service/local/repositories/thirdparty/content</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<dependencies>
+
+		<dependency>
+
+			<groupId>com.typesafe.play</groupId>
+
+			<artifactId>play_2.10</artifactId>
+
+			<version>${play.version}</version>
+
+			<scope>compile</scope>
+
+		</dependency>
+
+		<dependency>
+
+			<groupId>com.typesafe.play</groupId>
+
+			<artifactId>play-test_2.10</artifactId>
+
+			<version>${play.version}</version>
+
+			<scope>compile</scope>
+
+		</dependency>
+
+
+
+		<!-- the Java API is in this artifact -->
+
+		<dependency>
+
+			<groupId>com.typesafe.play</groupId>
+
+			<artifactId>play-java_2.10</artifactId>
+
+			<version>${play.version}</version>
+
+			<scope>provided</scope>
+
+		</dependency>
+
+		<dependency>
+
+                  <groupId>com.typesafe.play</groupId>
+
+                  <artifactId>play-cache_2.10</artifactId>
+
+                  <version>${play.version}</version>
+
+                  <scope>provided</scope>
+
+          </dependency>
+
+	<dependency>
+	<groupId>org.json</groupId>
+	<artifactId>json</artifactId>
+	<version>20070829</version>
+	<scope>compile</scope>
+	</dependency>
+
+	<dependency>
+	<groupId>org.antlr</groupId>
+	<artifactId>ST4</artifactId>
+	<version>4.0.7</version>
+	<scope>compile</scope>
+	</dependency>
+
+	</dependencies>
+
+
+	<build>
+
+		<!-- Play source directory -->
+
+		<sourceDirectory>src</sourceDirectory>
+
+		<!-- <testSourceDirectory>test</testSourceDirectory> -->
+
+
+
+		<plugins>
+
+
+
+
+			<plugin>
+
+				<groupId>org.apache.maven.plugins</groupId>
+
+				<artifactId>maven-compiler-plugin</artifactId>
+
+				<version>2.3.1</version>
+
+				<configuration>
+
+					<source>1.6</source>
+
+					<target>1.6</target>
+
+				</configuration>
+
+			</plugin>
+
+
+
+			<plugin>
+
+				<groupId>org.codehaus.mojo</groupId>
+
+				<artifactId>sonar-maven-plugin</artifactId>
+
+				<version>2.1</version>
+
+			</plugin>
+
+
+
+		</plugins>
+
+
+
+	</build>
+
+
+
+</project>
