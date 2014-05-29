@@ -5,27 +5,54 @@
 # ~~~~
 
 # Single endpoint for serving AngularJS
-#GET     /                           controllers.Application.index
-GET 	/ 							 controllers.Assets.at(path="/public/html", file="index.html")
+GET     /                            controllers.Application.index
+
+#GET 	/ 							 controllers.Assets.at(path="/public/html", file="index.html")
 GET     /public/css/*file            controllers.Assets.at(path="/public/css", file)
 GET     /public/js/*file             controllers.Assets.at(path="/public/js", file)
 GET     /public/images/*file         controllers.Assets.at(path="/public/images", file)
 #GET     /randomUUID                 controllers.Application.randomUUID
 
 # User management API
-GET     /users                      controllers.UserController.findUsers
-GET     /users/:userEmail           controllers.UserController.findUser(userEmail: String)
-POST    /user                       controllers.UserController.createUser
-PUT 	/user						controllers.UserController.updateUser
+#GET     /users                      controllers.UserController.findUsers
+#GET     /users/:userEmail           controllers.UserController.findUser(userEmail: String)
+#POST    /user                       controllers.UserController.createUser
+#PUT 	/user						controllers.UserController.updateUser
 
 #Pollet API
-GET     /pollets                    controllers.PolletController.findPollets
-GET     /pollets/:polletId          controllers.PolletController.findPollet(polletId: String)
-POST    /pollet                     controllers.PolletController.createPollet
-PUT 	/pollet						controllers.PolletController.updatePollet
+#GET     /pollets                    controllers.PolletController.findPollets
+#GET     /pollets/:polletId          controllers.PolletController.findPollet(polletId: String)
+#POST    /pollet                     controllers.PolletController.createPollet
+#PUT 	/pollet						controllers.PolletController.updatePollet
 
 #Category API
-GET     /categories                 controllers.PolletController.findCategories
+GET     /categories                 controllers.CategoryController.findCategories
+POST    /category                 	controllers.CategoryController.addCategory
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+
+#############################################################################################
+############### The SecureSocial Routes #####################################################
+#############################################################################################
+# Login page
+GET     /login                      securesocial.controllers.LoginPage.login
+GET     /logout                     securesocial.controllers.LoginPage.logout
+
+# User Registration and password handling 
+GET     /signup                     securesocial.controllers.Registration.startSignUp
+POST    /signup                     securesocial.controllers.Registration.handleStartSignUp
+GET     /signup/:token              securesocial.controllers.Registration.signUp(token)
+POST    /signup/:token              securesocial.controllers.Registration.handleSignUp(token)
+GET     /reset                      securesocial.controllers.Registration.startResetPassword
+POST    /reset                      securesocial.controllers.Registration.handleStartResetPassword
+GET     /reset/:token               securesocial.controllers.Registration.resetPassword(token)
+POST    /reset/:token               securesocial.controllers.Registration.handleResetPassword(token)
+GET     /password                   securesocial.controllers.PasswordChange.page
+POST    /password                   securesocial.controllers.PasswordChange.handlePasswordChange
+
+# Providers entry points
+GET     /authenticate/:provider     securesocial.controllers.ProviderController.authenticate(provider)
+POST    /authenticate/:provider     securesocial.controllers.ProviderController.authenticateByPost(provider)
+GET     /not-authorized             securesocial.controllers.ProviderController.notAuthorized

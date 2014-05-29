@@ -12,10 +12,12 @@
 package common.resource;
 
 import common.util.AppConstants;
-
+import play.api.mvc.SimpleResult;
 import play.libs.Json;
 import play.libs.F.*;
 import play.mvc.Result;
+import scala.concurrent.Future;
+import views.html.defaultpages.unauthorized;
 
 public class ErrorResponse {
 
@@ -36,6 +38,12 @@ public class ErrorResponse {
 		this.errorCode = errorCode;
 		this.developerMessage = developerMessage;
 		this.errorMessage = errorMessage;
+	}
+	
+	public ErrorResponse(String errorCode, String message) {
+		super();
+		this.errorCode = errorCode;
+		this.errorMessage = message;
 	}
 
 
@@ -129,7 +137,14 @@ public class ErrorResponse {
 					new Function0<Result>() {
                 @Override
                 public Result apply() throws Throwable {
-                    return unauthorized(Json.toJson(this)).as(AppConstants.JSON_CONTENT_TYPE);
+                    return new Result() {
+						
+						@Override
+						public Future<SimpleResult> getWrappedResult() {
+							// TODO Auto-generated method stub
+							return null;
+						}
+					};
                 }
             });
 		}

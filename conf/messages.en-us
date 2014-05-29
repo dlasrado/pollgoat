@@ -1,3 +1,39 @@
 E1000.title=Service Glitch
 E1000.errorMsg=Oops! Looks like there is service glitch! Please try again. If the issue persists, please contact support
 E1000.devMsg=Unable to process your request,please try again after sometime.
+
+P1000.title=Internal Application Error
+P1000.errorMsg=Please try again. If the problem persists, please contact salesapphelp@equinix.com
+P1000.devMsg=Unable to process your request,please try again after sometime.
+
+P1001.title=Internal Application Error
+P1001.errorMsg=Please try again. If the problem persists, please contact salesapphelp@equinix.com
+P1001.devMsg=Gateway Timeout. Your request cannot be processed now, please try again after sometime.
+
+P1002.title=Under Maintenance
+P1002.errorMsg=This feature is under maintenance. Please try after sometime.
+P1002.devMsg=API is under maintenance.
+
+P1003.title=Invalid Request
+P1003.errorMsg=Mandatory attribute is missing in the request.
+P1003.devMsg=Mandatory attribute is missing in the request - [{0}].
+
+P1004.title=Invalid parameter
+P1004.errorMsg=Invalid value for the parameter
+P1004.devMsg=Invalid value for the parameter in the request - [{0}].Not in Json format.
+
+P1005.title=Timeout error occured.
+P1005.errorMsg=Timeout error occured.
+P1005.devMsg=Timeout error occured.
+
+P1901.title=JSON error
+P1901.errorMsg=Error occured converting database response to json.
+P1901.devMsg=Error occured converting database response to json -[{0}].
+
+P1902.title=Failed to complete requested operation
+P1902.errorMsg=Failed to complete requested operation
+P1902.devMsg=Failed to complete requested operation. Error is - [{0}].
+
+P1903.title=No records found
+P1903.errorMsg=No records found.
+P1903.devMsg=No records found for the specified criteria.

@@ -1,54 +1,94 @@
-<!doctype html>
-<html lang="en" ng-app="myApp">
+@(username: String)
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Mon May 19 2014 09:06:43 GMT+0000 (UTC) -->
+<html data-wf-site="5379bdc697d54fce793b0d0b">
 <head>
-    <meta charset="utf-8">
-    <title>Modern Web Template</title>
-    <!-- Latest compiled and minified Bootstrap CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" media='screen' href='@routes.Assets.at(path="css", file="main.css")'> 
+  <meta charset="utf-8">
+  <title>Poll Goat - @username</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="public/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="public/css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="public/css/darel1400487358965.webflow.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Montserrat:400,700","Bitter:400,700,400italic"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src=""public/js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="https://y7v4p6k4.ssl.hwcdn.net/placeholder/favicon.ico">
+  <link rel="apple-touch-icon" href="https://y7v4p6k4.ssl.hwcdn.net/51d1bb05fc804b2621000001/51e06f0756878bb26a000008_webclip-slate.png">
 </head>
-<body>
-<div class="container-fluid col-md-10 col-md-offset-1">
-    <!-- Fixed navbar -->
-    <header>
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#/">Polte : Social Polls</a>
-            </div>
+<body ng-app="pollGoat">
+  <header class="navbar">
+    <div class="w-container">
+      <div class="w-row">
+        <div class="w-col w-col-4">
+          <img class="logo" src="public/images/logo-header.png" width="25" alt="530e4fc7f4a216ca3c0000e1_logo-header.png">
+          <div class="app-name">Poll Goat</div>
         </div>
-    </header>
-
-    <div ng-view></div>
-
-    <div>
-        <footer>
-            <hr/>
-            <div>
-                <span>&copy; Polte.com 2014</span>
-                <span class="pull-right">version : <span app-version></span></span>
-            </div>
-        </footer>
+        <div class="w-col w-col-8 nav-column"><a class="nav-link" href="#">Home</a><a class="nav-link" href="#page-nav-share">About</a><a class="nav-link" href="#">@username</a>
+        </div>
+      </div>
     </div>
-</div>
+  </header>
+  <div class="top-padding-row"></div>
+  
+  <div class="w-row" ng-view></div>
+  
+    
+    <div class="section purple">
+    <div class="w-container">
+      <div class="w-row">
+        <div class="w-col w-col-8">
+          <h2 class="price-text">Poll Goat is available Apple app store and Google play!</h2>
+        </div>
+        <div class="w-col w-col-4">
+          <a class="w-inline-block button app-button" href="http://www.apple.com" target="_blank">
+            <img src="public/images/appstore.png" width="114" alt="52af8cf8aae9d4d567000057_appstore.png">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section grey footer">
+    <div class="w-container">
+      <p class="footer-text">Poll Goat by S3 Pvt Ltd. </p>
+      <div class="button-block">
+        <a class="w-inline-block social-button" href="mailto:pollgoatgmail.com?subject=Hello!" target="_blank">
+          <img src="public/images/email-icon.png" width="21px" alt="52af8da2aed63fb91400000f_email-icon.png">
+        </a>
+        <a class="w-inline-block social-button" href="http://facebook.com/webflowapp" target="_blank">
+          <img src="public/images/facebook-icon.png" width="21px" alt="52af8da8aed63fb914000010_facebook-icon.png">
+        </a>
+        <a class="w-inline-block social-button" href="http://twitter.com/webflowapp" target="_blank">
+          <img src="public/images/twitter-icon.png" width="21px" alt="52af8db1aed63fb914000011_twitter-icon.png">
+        </a>
+      </div>
+      <img class="logo-in-footer" src="public/images/footer-logo.png" width="25px" alt="52af8db8aed63fb914000012_footer-logo.png">
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="public/js/webflow.js"></script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+  
+  	<script src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js' type="text/javascript"></script>
+	<script src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-route.js' type="text/javascript"></script>
+	<script src='@routes.Assets.at(path="/public/js", file="vendor/ui-bootstrap-tpls-0.10.0.js")' type="text/javascript"></script>
+
+	<script src='@routes.Assets.at(path="/public/js", file="app.js")' type="text/javascript"></script>
+	<script src='@routes.Assets.at(path="/public/js", file="common/Config.js")' type="text/javascript"></script>
+	<script src='@routes.Assets.at(path="/public/js", file="directives/AppVersion.js")' type="text/javascript"></script>
+	
+	<script src='@routes.Assets.at(path="/public/js", file="controllers/PollController.js")' type="text/javascript"></script>
+	<script src='@routes.Assets.at(path="/public/js", file="controllers/CategoryController.js")' type="text/javascript"></script>
+	
+	<script src='@routes.Assets.at(path="/public/js", file="services/PollService.js")' type="text/javascript"></script>
+	<script src='@routes.Assets.at(path="/public/js", file="services/CategoryService.js")' type="text/javascript"></script>
+	
 </body>
-
-<script src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js' type="text/javascript"></script>
-<script src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-route.js' type="text/javascript"></script>
-<script src='@routes.Assets.at(path="js/vendor", file="ui-bootstrap-tpls-0.10.0.js")' type="text/javascript"></script>
-
-
-
-<!-- Coffee script compilled resources-->
-<script src='@routes.Assets.at(path="js",file="app.js")' type="text/javascript"></script>
-<script src='@routes.Assets.at(path="js/common",file="Config.js")' type="text/javascript"></script>
-<script src='@routes.Assets.at(path="js/directives",file="AppVersion.js")' type="text/javascript"></script>
-
-
 </html>

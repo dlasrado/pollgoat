@@ -2,31 +2,37 @@
 var dependencies = [
     'ngRoute',
     'ui.bootstrap',
-    'myApp.filters',
-    'myApp.services',
-    'myApp.controllers',
-    'myApp.directives',
-    'myApp.common',
-    'myApp.routeConfig'
+    'pollGoat.filters',
+    'pollGoat.services',
+    'pollGoat.controllers',
+    'pollGoat.directives',
+    'pollGoat.common',
+    'pollGoat.routeConfig'
 ];
 
-var app = angular.module('myApp', dependencies);
+var app = angular.module('pollGoat', dependencies);
 
-angular.module('myApp.routeConfig', ['ngRoute'])
+angular.module('pollGoat.routeConfig', ['ngRoute'])
     .config (function($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: '/assets/partials/view.html'
             })
-            .when('/users/create', {
+            .when('/create', {
                 templateUrl: '/assets/partials/create.html'
+            })
+            .when('/edit/:polletId', {
+                templateUrl: '/assets/partials/edit.html'
+            })
+            .when('/profile', {
+                templateUrl: '/assets/partials/profile.html'
             })
             .otherwise({redirectTo: '/'});
         });
 
-var commonModule = angular.module('myApp.common', []);
-var controllersModule = angular.module('myApp.controllers', []);
-var servicesModule = angular.module('myApp.services', []);
-var modelsModule = angular.module('myApp.models', []);
-var directivesModule = angular.module('myApp.directives', []);
-var filtersModule = angular.module('myApp.filters', []);
+var commonModule = angular.module('pollGoat.common', []);
+var controllersModule = angular.module('pollGoat.controllers', []);
+var servicesModule = angular.module('pollGoat.services', []);
+var modelsModule = angular.module('pollGoat.models', []);
+var directivesModule = angular.module('pollGoat.directives', []);
+var filtersModule = angular.module('pollGoat.filters', []);

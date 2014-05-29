@@ -27,11 +27,11 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 
-import com.equinix.fase.fqa.util.FQAConstants;
-
 import play.Logger;
 import play.api.i18n.Lang;
 import scala.collection.Seq;
+
+import common.exception.InvalidConfigurationException;
 
 public class Util {
 
@@ -176,12 +176,12 @@ public class Util {
 		
 		if(replaceWith==null) {
 			
-			replaceWith = FQAConstants.BLANK;
+			replaceWith = AppConstants.BLANK;
 			
 		}
 		
 		if(val != null && val.equalsIgnoreCase("null"))
-			val = FQAConstants.BLANK;
+			val = AppConstants.BLANK;
 		
 		return (val==null) ? replaceWith : val.trim();
 	}
@@ -198,6 +198,29 @@ public class Util {
 	}
 	
 	
+	
+	protected static final AppConfig                 CONFIGLOADER              = AppConfig
+            .getInstance();
+	
+	public static ArrayList<String> getDBConfig(String connectionName) throws InvalidConfigurationException{
+		
+		String dbConfigs = CONFIGLOADER.get(connectionName);
+		
+		if(dbConfigs == null || dbConfigs.isEmpty()) throw new InvalidConfigurationException("No configuration found for connectionName " + connectionName);
+		
+		ArrayList<String> al = new ArrayList<String>();
+		
+		StringTokenizer st = new StringTokenizer(dbConfigs,",");
+		
+		int counter = 0;
+		while(st.hasMoreTokens()){
+			
+			al.add(counter,st.nextToken());
+			counter++;
+		}
+		
+		return al;
+	}
 	
 
 	

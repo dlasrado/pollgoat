@@ -28,18 +28,8 @@ public class Global extends GlobalSettings {
     public Action.Simple onRequest(Request request, Method method) {
 
     	Logger.debug("Inside onRequest...");
-        if (request.path().contains(AppConstants.API_LOGIN)
-                || request.path().contains(AppConstants.API_ENCRYPT)) {
-            return (Simple) super.onRequest(request, method);
-        }
 
-        /*if (request.getHeader(FQAConstants.HTTP_AUTHORIZATION_HEADER) == null) {
-            return new AuthorizeAction();
-        } else if (request.getQueryString(FQAConstants.QUERYSTRING_NAME_UID) == null) {
-            return new RequestValidator();
-        } else {*/
-            return (Simple) super.onRequest(request, method);
-        //}
+        return (Simple) super.onRequest(request, method);
         
     }
 
